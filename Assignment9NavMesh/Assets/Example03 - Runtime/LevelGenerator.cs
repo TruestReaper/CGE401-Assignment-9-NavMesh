@@ -1,5 +1,13 @@
-using UnityEngine;
+/*
+Name: John Chirayil
+File: LevelGenerator.cs
+CGE401 - Assignment 9 - NavMesh
+Description: This code will generate a random 
+level once the player hits play.
+*/
 
+using UnityEngine;
+using UnityEngine.AI;
 public class LevelGenerator : MonoBehaviour {
 
 	public int width = 10;
@@ -10,9 +18,14 @@ public class LevelGenerator : MonoBehaviour {
 
 	private bool playerSpawned = false;
 
+	public NavMeshSurface surface;
+
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		GenerateLevel();
+
+		surface.BuildNavMesh();
 	}
 	
 	// Create a grid based level
